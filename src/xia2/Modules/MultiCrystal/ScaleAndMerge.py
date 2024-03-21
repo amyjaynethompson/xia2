@@ -730,12 +730,15 @@ class MultiCrystalScale:
         d.update(report.intensity_stats_plots())
         d.update(report.pychef_plots())
 
-        xtriage_success, xtriage_warnings, xtriage_danger = report.xtriage_report()
-        d["xtriage"] = {
-            "success": xtriage_success,
-            "warnings": xtriage_warnings,
-            "danger": xtriage_danger,
-        }
+        # THIS BIT MESSES UP FOR ED DATA - HAVE TEMPORARILY REMOVE XTRIAGE ANALYSIS
+
+        # xtriage_success, xtriage_warnings, xtriage_danger = report.xtriage_report()
+        # d["xtriage"] = {
+        # "success": xtriage_success,
+        # "warnings": xtriage_warnings,
+        # "danger": xtriage_danger,
+        # }
+        d["xtriage"] = {"FAILED": "Xtriage cannot handle your ED Data"}
         d["merging_stats"] = report.merging_stats.as_dict()
         d["merging_stats_anom"] = report.merging_stats.as_dict()
 
